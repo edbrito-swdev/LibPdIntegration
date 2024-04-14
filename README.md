@@ -21,12 +21,14 @@ LibPdIntegration is a wrapper for [libpd](https://github.com/libpd/libpd) for in
 
 LibPdIntegration offers a couple of features which set it apart from existing implementations of libpd for Unity:
 
-- It works with recent versions of Unity (at the time of writing, it's been tested on **2018.4 LTS**, **2019.4 LTS**, **2020.3 LTS** and **2021.1**, though it should work on older versions too).
+- It works with recent versions of Unity (at the time of writing, it's been tested on **2018.4 LTS**, **2019.4 LTS**, **2020.3 LTS**, **2021.1** and **2022.3**, though it should work on older versions too).
 - It supports multiple instances. This was impossible with previous implementations, as libpd itself did not support running multiple patches side by side. The libpd developers have recently removed that limitation however, meaning LibPdIntegration can allow developers to run multiple Pd patches in their Unity projects. This also means it's now feasible to build a 3D scene in Unity with multiple Pd patches all spatialised using Unity's audio code.
 
 ## Quickstart
 
 This repository contains everything you need to incorporate Pd patches into your Unity project. First download it from the [releases](https://github.com/LibPdIntegration/LibPdIntegration/releases) page, then copy the contents of the [Assets](Assets/) folder into your project's Assets folder. LibPdIntegration provides native libpd binaries for supported platforms in the [Plugins](Assets/Plugins/) subfolder, and a single C# script, [LibPdInstance.cs](Assets/Scripts/LibPdInstance.cs) in the [Scripts](Assets/Scripts/) subfolder.
+
+**Note for Apple Silicon users** The latest release does not include the arm64 binary (i.e. Apple Sillicon). If you want to use it with an Apple Sillicon device, ![download this folder instead](Assets). If you want to build it yourself be aware that you need to rename your generated .dynlib file to .bundle before placing it in the Assets folder.
 
 PD patches should be placed in the [StreamingAssets/PdAssets](Assets/StreamingAssets/PdAssets/) folder (you can create your own subfolders within).
 
